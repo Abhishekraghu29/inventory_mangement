@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Inventory System</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <div class="left-side">
+        <img src="{% static 'images/inventory.png' %}" alt="Inventory Management System">
+    </div>
+
+    <div class="right-side">
+        <h2>Login your System</h2>
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+        <form  method="POST">
+            {% csrf_token %}
+
+            
+
+
+
+            <label>Username</label>
+            <input type="text" name="username" required>
+            <label>Password</label>
+            <input type="password" name="password" required>
+            <div class="remember">
+                <input type="checkbox"> Remember me
+            </div>
+           <button type="submit">Login</button>
+            <!-- <button type="submit">Login</button> -->
+        </form>
+        <p class="links">
+            🔒 <a href="{% url 'forget'%}">Forgot password</a> / <a href="{% url 'signup'%}">Sign in</a>
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
+

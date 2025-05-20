@@ -1,0 +1,35 @@
+
+      .main-content {
+        flex: 1;
+        background: #f0f2f5;
+        padding: 20px;
+    }
+    
+    .top-bar {
+        background: #6df1f1;
+        padding: 10px;
+        text-align: right;
+        font-weight: bold;
+    }
+    
+    .cards {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .card {
+        flex: 1 1 30%;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        color: white;
+        text-align: center;
+    }
+    
+    .blue { background: #00bfff; }
+    .green { background: #28a745; }
+    .orange { background: #fd7e14; }
+    .purple { background: #6f42c1; }
+    .red { background: #dc3545; }

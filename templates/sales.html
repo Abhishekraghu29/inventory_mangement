@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Sales{% endblock %}
+{% block content %}
+<h2>Sales Records</h2>
+
+
+<br>
+<br>
+<table class="table table-light table-striped">
+  <thead class="table-dark " >
+      <th scope="col">Id</th>
+      <th scope="col">Product</th>
+      <th scope="col">Cost Price </th>
+      <th scope="col">Selling Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Action</th>
+  </thead>
+
+
+  
+  <tbody>
+     {% for sales in products %}
+   
+    <tr>
+      <td>{{ sales.id }}</td>
+      <td>{{ sales.name }}</td>
+      <td>{{ sales.cp }}</td>
+      <td>{{ sales.sp }}</td>
+      <td>{{ sales.quantity}}</td>
+      <td>
+        <a href=""><button type="submit" class="btn btn-success">Edit</button></a>
+
+        <a href="{% url 'delete_sales' sales.id %}"><button type="submit" class="btn btn-danger" >Delete</button></a> 
+      </td>
+    
+    {% endfor %}
+  </tbody>
+  
+</table>
+
+
+
+{%include 'addsales.html' %}
+
+{% endblock %}
+
+

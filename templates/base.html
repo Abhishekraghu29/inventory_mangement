@@ -1,0 +1,109 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Dashboard{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #343a40;
+            color: white;
+        }
+        .sidebar a {
+            color: white;
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+        }
+        .cards a {
+            color: white;
+            text-decoration: none
+        }
+        .sidebar a:hover {
+            background-color: #495057;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar ">
+        <h3 class="p-3">Inventory</h3>
+        <a href="{% url 'base' %}">Dashboard</a>
+        <a href="{% url 'category' %}">Category</a>
+        <a href="{% url 'product' %}">Product</a>
+        <a href="{% url 'supplier' %}">Supplier</a>
+        <a href="{% url 'sales' %}">Sales</a>
+    </div>
+
+   
+
+    <!-- <div class="sectionsbox">
+        <div class="sec1">
+        <div id="box1">   <img src="{% static 'images/Systemuser.png' %}" alt="Inventory Boxes" width="300"></div>
+    
+        <div id="box2"> <img src="{% static 'images/category.png' %}" alt="Inventory Boxes" width="300"></div>
+        
+        <div id="box3"> <img src="{% static 'images/product.png' %}" alt="Inventory Boxes" width="300"></div>
+        </div>
+        <div class="sec2">
+            <div id="box5"> <img src="{% static 'images/supplier.png' %}" alt="Inventory Boxes" width="300"></div>
+            <div id="box7"><img src="{% static 'images/totalpurchase.png' %}" alt="Inventory Boxes" width="300"></div>
+            <div id="invisible"></div>
+        </div>
+    </div>    -->
+
+    <!-- Main Content -->
+    <div class="content">
+        {% block content %}
+        <div class="main-content">
+            <div class="top-bar">
+                <span>User</span>
+            </div>
+        
+            <div class="cards">
+                <div class="card blue">
+                    <h3>{{ system_users }}</h3>
+
+                    <a href="{% url 'system_users' %}">
+                        <h2>{{ user_count }}</h2>
+                      <p>System Users</p>
+                    
+                    </a>
+
+                    <!-- <p><a href="{% url 'system_users' %}">System Users</a></p> -->
+                </div>
+                <div class="card green">
+                    <h3>{{ categories }}</h3>
+                   <p> <a href="{% url 'category' %}">Category</a> </p> 
+                    <!-- <p>Category</p> -->
+                </div>
+                <div class="card orange">
+                    <h3>{{ products }}</h3>
+                    <p><a href="{% url 'product' %}">Product</a></p>
+                </div>
+                <div class="card purple">
+                    <h3>{{ suppliers }}</h3>
+                    <p><a href="{% url 'supplier' %}">Supplier</a></p>
+                </div>
+                <div class="card red">
+                    <h3>{{ total_purchases }}</h3>
+                    <p><a href="{% url 'sales' %}">total_purchases</a></p>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+</body>
+</html>

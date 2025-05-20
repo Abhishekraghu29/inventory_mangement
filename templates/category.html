@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Category{% endblock %}
+{% block content %}
+<h2>Manage Categories</h2>
+
+
+<br>
+<br>
+<table class="table table-light table-striped">
+  <thead class="table-dark " >
+   
+      <th scope="col">id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Stock</th>
+      <th scope="col">Purchase</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">supplier</th>
+      <th scope="col">Action</th>
+  </thead>
+
+
+  
+  <tbody>
+     {% for product in products %}
+   
+    <tr>
+      
+      <td>{{ category.id }}</td>
+      <td>{{ category.name }}</td>
+      <td>{{ category.stock }}</td>
+      <td>{{ category.PurchesList}}</td>
+      <td>
+        <a href=""><button type="submit" class="btn btn-success">Edit</button></a>
+
+        <a href="{% url 'delete_category' category.id %}"><button type="submit" class="btn btn-danger" >Delete</button></a> 
+      </td>
+    
+    {% endfor %}
+  </tbody>
+  
+</table>
+
+
+
+{%include 'addcategory.html' %}
+
+{% endblock %}
+
